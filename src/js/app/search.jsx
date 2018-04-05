@@ -30,7 +30,9 @@ export default class search extends Component {
             let query = event.target.value;
             // Make a new timeout set to go off in 800ms
             this.timeout = setTimeout(() => {
-                if (query.length > 2) {
+                debugger;
+
+                if (query.replace(/^\s+|\s+$/g, "").length > 2) {
                     getSearchResult(query).then(data => {
                         this.setState({ searchQuery: query });
                         if (!data.length > 0) {
@@ -43,17 +45,18 @@ export default class search extends Component {
                         this.setState({ searching: false, });
                     })
                 }
-            }, 300);
+                else {
+                    this.setState({ searching: false, });
+                }
+            }, 500);
         }
     };
 
     render() {
         return (
             <Fragment>
-
                 <Searchfield onKeyUp={this.check} searching={this.state.searching} />
                 <Autocomplete data={this.state.queryResults} />
-
             </Fragment>
         )
     }
