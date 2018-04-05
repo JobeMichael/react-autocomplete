@@ -2,8 +2,11 @@
 @import './app/search.css';
 /** typography **/
 
+body {
+    font-family: 'Open Sans';
+}
+
 h1 {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 2.5em;
     line-height: 1.5em;
     letter-spacing: -0.05em;

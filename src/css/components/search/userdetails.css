@@ -1,0 +1,25 @@
+.autocomplete-suggestion {
+    position: relative;
+    padding: 10px 10px 10px 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.autocomplete-suggestion img {
+    width: 35px;
+    vertical-align: middle;
+}
+
+.autocomplete-suggestion .as-score {
+    font-size: 12px;
+    position: absolute;
+    right: 20px;
+    top: 18px;
+}
+
+.autocomplete-suggestion .as-login {
+    font-weight: bold;
+    margin-left: 13px;
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #36353e;
+}
