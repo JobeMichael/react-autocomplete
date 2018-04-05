@@ -12,7 +12,7 @@ describe('User Details', () => {
             login: '',
             score: 3,
         }
-        const commentWrapper = shallow(<UserDetail {...data} />);
-        expect(commentWrapper.find('span.as-login').length).toEqual(1);
+        const wrapper = shallow(<UserDetail {...data} />);
+        expect(wrapper.find('span.as-login').length).toEqual(1);
     });
 });
