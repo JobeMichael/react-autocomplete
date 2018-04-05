@@ -14,5 +14,6 @@ describe('User Details', () => {
         }
         const wrapper = shallow(<UserDetail {...data} />);
         expect(wrapper.find('span.as-login').length).toEqual(1);
+        expect(wrapper.find('div.autocomplete-suggestion div').childAt(0).type()).toEqual('span');
     });
 });
