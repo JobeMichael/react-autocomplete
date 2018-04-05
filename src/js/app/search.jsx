@@ -40,13 +40,15 @@ export default class search extends Component {
                         if (!data.length > 0) {
                             this.setState({ queryResults: data.items });
                         }
-                        this.setState({ searching: false, });
+                        this.setState({ searching: false });
+                    }).catch(err => {
+                        console.log('Erro')
                     })
                 }
                 else {
                     this.setState({ searching: false, });
                 }
-            }, 500);
+            }, 300);
         }
     };
 
@@ -54,13 +56,7 @@ export default class search extends Component {
         return (
             <Fragment>
                 <Searchfield onKeyUp={this.check} searching={this.state.searching} />
-                <Autocomplete data={this.state.queryResults} searching={this.state.searching} query={this.state.searchQuery} /> :
-                {/* {
-                    this.state.searching === false ?
-                        <Autocomplete data={this.state.queryResults} query={this.state.searchQuery} /> :
-                        ''
-                } */}
-
+                <Autocomplete data={this.state.queryResults} searching={this.state.searching} query={this.state.searchQuery} />
             </Fragment>
         )
     }
