@@ -1,8 +1,16 @@
-# Setting up Webpack, Babel and React from scratch, revisited
+# GitHub User search
 
-This is example repo for webpack/babel/react tutorial:
+Sample Application to search GitHub users.
 
-[https://stanko.github.io/webpack-babel-react-revisited](https://stanko.github.io/webpack-babel-react-revisited)
+# Setup
 
+` Clone the solution `
 
-# https://stackoverflow.com/questions/30656761/github-search-api-only-return-30-results
+` npm install ` - To install all dependancies
+
+` npm run dev ` - To run in local server
+
+` npm run build ` - To create production script and css.
+
+` npmr run test ` - To run testing.
+
