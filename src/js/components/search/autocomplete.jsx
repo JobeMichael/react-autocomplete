@@ -5,7 +5,7 @@ const autoComplete = (props) => {
 
     props.data.map((item, index) => {
         let key = `key_${index}`;
-        elem.push(<div key={key} className="autocomplete-suggestion" data-index="0">{item.title}</div>);
+        elem.push(<div key={key} className="autocomplete-suggestion" data-index="0">{item.login}</div>);
     })
 
     return (
