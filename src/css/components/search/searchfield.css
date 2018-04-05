@@ -1,0 +1,16 @@
+#searchfield .biginput {
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    height: 44px;
+    position: absolute;
+    z-index: 6;
+    left: 0px;
+    outline: none;
+    font-size: 20px;
+    padding: 0 15px 0px 15px;
+}
+
+#searchfield .biginput:focus {
+    color: #858585;
+}

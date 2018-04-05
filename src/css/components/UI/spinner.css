@@ -1,0 +1,27 @@
+.spinner {
+    display: inline-block;
+    width: auto;
+    position: absolute;
+    right: 12px;
+    top: 6px;
+    z-index: 8;
+}
+
+.spinner .loadersmall {
+    border: 5px solid #c6c6c6;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+    border-top: 5px solid #fff;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
