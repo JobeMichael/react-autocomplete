@@ -56,7 +56,12 @@ export default class search extends Component {
         return (
             <Fragment>
                 <Searchfield onKeyUp={this.check} searching={this.state.searching} />
-                <Autocomplete data={this.state.queryResults} />
+                {
+                    this.state.searching === false ?
+                        <Autocomplete data={this.state.queryResults} query={this.state.searchQuery} /> :
+                        ''
+                }
+
             </Fragment>
         )
     }
