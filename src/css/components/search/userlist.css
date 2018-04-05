@@ -1,0 +1,17 @@
+.user-list {
+    clear: both;
+    display: block;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.user-list img {
+    width: 84px;
+}
+
+.user-list span {
+    font-size: 26px;
+    margin-left: 12px;
+    font-weight: bold;
+}

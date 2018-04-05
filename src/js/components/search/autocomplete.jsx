@@ -7,7 +7,7 @@ const autoComplete = (props) => {
         if (props.data.length > 0) {
             props.data.map((item, index) => {
                 let key = `key_${index}`;
-                elem.push(<Userdetail key={key} {...item} />);
+                elem.push(<Userdetail key={key} {...item} selectedUser={props.selectedUser} />);
             })
         }
         else if (props.query.length > 0 && !props.searching && props.query.replace(/^\s+|\s+$/g, "").length > 0) {

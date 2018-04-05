@@ -1,3 +1,4 @@
 @import '../components/search/searchfield.css';
 @import '../components/search/autocomplete.css';
-@import '../components/search/userdetails.css'
+@import '../components/search/userdetails.css';
+@import '../components/search/userlist.css';

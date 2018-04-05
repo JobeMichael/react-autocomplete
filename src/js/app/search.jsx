@@ -2,6 +2,7 @@ import React, { Fragment, Component } from 'react';
 import Autocomplete from '../components/search/autocomplete'
 import Searchfield from '../components/search/searchfield'
 import { getSearchResult } from '../service.js'
+import UserList from '../components/search/userlist'
 
 
 
@@ -13,10 +14,16 @@ export default class search extends Component {
             queryResults: [],
             searching: false,
             searchQuery: '',
+            selected: false,
+            selectedUser: {}
         }
     };
+    selectedUser = user => {
+        this.setState({ queryResults: [], selected: true, selectedUser: user });
+        console.dir(user);
+    }
 
-    check = event => {
+    searchEvent = event => {
         // Clear the timeout if it has already been set.
         // This will prevent the previous task from executing
         // if it has been less than <MILLISECONDS>   
@@ -38,7 +45,7 @@ export default class search extends Component {
                     getSearchResult(query).then(data => {
                         this.setState({ searchQuery: query });
                         if (!data.length > 0) {
-                            this.setState({ queryResults: data.items });
+                            this.setState({ queryResults: data.items, selected: false });
                         }
                         this.setState({ searching: false });
                     }).catch(err => {
@@ -55,8 +62,10 @@ export default class search extends Component {
     render() {
         return (
             <Fragment>
-                <Searchfield onKeyUp={this.check} searching={this.state.searching} />
-                <Autocomplete data={this.state.queryResults} searching={this.state.searching} query={this.state.searchQuery} />
+                <Searchfield onKeyUp={this.searchEvent} searching={this.state.searching} />
+                {this.state.selected === false
+                    ? <Autocomplete data={this.state.queryResults} selectedUser={this.selectedUser} searching={this.state.searching} query={this.state.searchQuery} />
+                    : <UserList {...this.state.selectedUser} />}
             </Fragment>
         )
     }
