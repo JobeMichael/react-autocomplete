@@ -25,22 +25,20 @@ export default class search extends Component {
             clearTimeout(this.timeout);
             console.log(event.keyCode);
             this.setState({ searching: true });
-            this.setState({ queryResults: [] });
+            //this.setState({ queryResults: [] });
 
             let query = event.target.value;
             // Make a new timeout set to go off in 800ms
             this.timeout = setTimeout(() => {
-                debugger;
+                if (query.replace(/^\s+|\s+$/g, "").length === 0) {
+                    this.setState({ queryResults: [] });
+                }
 
                 if (query.replace(/^\s+|\s+$/g, "").length > 0) {
                     getSearchResult(query).then(data => {
                         this.setState({ searchQuery: query });
                         if (!data.length > 0) {
                             this.setState({ queryResults: data.items });
-                        }
-                        else {
-                            const noData = [{ title: 'No data found' }];
-                            this.setState({ queryResults: noData });
                         }
                         this.setState({ searching: false, });
                     })
@@ -56,11 +54,12 @@ export default class search extends Component {
         return (
             <Fragment>
                 <Searchfield onKeyUp={this.check} searching={this.state.searching} />
-                {
+                <Autocomplete data={this.state.queryResults} searching={this.state.searching} query={this.state.searchQuery} /> :
+                {/* {
                     this.state.searching === false ?
                         <Autocomplete data={this.state.queryResults} query={this.state.searchQuery} /> :
                         ''
-                }
+                } */}
 
             </Fragment>
         )
