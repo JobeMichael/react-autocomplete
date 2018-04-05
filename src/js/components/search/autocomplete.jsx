@@ -11,7 +11,7 @@ const autoComplete = (props) => {
             elem.push(<Userdetail key={key} {...item} />);
         })
     }
-    else if (props.query.length > 0 && props.query.replace(/^\s+|\s+$/g, "").length > 2) {
+    else if (props.query.length > 0 && props.query.replace(/^\s+|\s+$/g, "").length > 0) {
         var data = {
             avatar_url: ''
         }

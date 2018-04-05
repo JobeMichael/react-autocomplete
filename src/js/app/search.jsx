@@ -32,7 +32,7 @@ export default class search extends Component {
             this.timeout = setTimeout(() => {
                 debugger;
 
-                if (query.replace(/^\s+|\s+$/g, "").length > 2) {
+                if (query.replace(/^\s+|\s+$/g, "").length > 0) {
                     getSearchResult(query).then(data => {
                         this.setState({ searchQuery: query });
                         if (!data.length > 0) {
